@@ -21,6 +21,12 @@ git clone https://github.com/rm-hull/luma.examples.git
 #add in I2C overlay
 sed -i '/overlays=usbhost0 usbhost1 usbhost2 usbhost3/c\overlays=usbhost0 usbhost1 usbhost2 usbhost3 i2c0' /boot/armbianEnv.txt
 
+
+#download example files
+wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.py
+wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox_logo.png
+wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.ttf
+
 #i2cdetect -y 0
 #cd ~/luma.examples/examples/
 #python font_awesome.py --i2c-port 0

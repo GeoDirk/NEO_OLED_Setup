@@ -5,7 +5,7 @@ Usage from the command line:
 ```bash
 wget https://github.com/GeoDirk/NEO_OLED_Setup/raw/master/install_oled.sh
 chmod 755 install_oled.sh
-./install_oled.sh
+./install_oled.sh 2>&1 >logfile.txt
 ```
 
 Ths script will install all the required libraries and set the ConnectBox image up for having a i2c device which is necessary for detecting the OLED panel. At the end of the installation, the script will reboot the NEO which will enable the i2c0 device in the Device Tree overlays.
