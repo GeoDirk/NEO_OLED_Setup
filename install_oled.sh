@@ -1,6 +1,15 @@
 #!/bin/bash
 
 cd ~
+echo " "
+echo "Checking for apt locks"
+## check if DPKG database is locked
+dpkg -i /dev/zero 2>/dev/null
+if [ "$?" -eq 2 ]; then
+    echo "dpkg database is locked by a system upgrade. Try again later..."
+	exit 0
+fi
+
 apt-get install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential i2c-tools -y
 sudo -H pip install --upgrade pip
 apt-get purge python-pip -y
