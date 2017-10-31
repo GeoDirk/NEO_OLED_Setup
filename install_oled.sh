@@ -6,30 +6,27 @@ echo "Checking for apt locks"
 ## check if DPKG database is locked
 dpkg -i /dev/zero 2>/dev/null
 if [ "$?" -eq 2 ]; then
-    echo "dpkg database is locked by a system upgrade. Try again later..."
+    echo "-->dpkg database is locked by a system upgrade. Try again later..."
 	exit 0
 fi
+echo "-->No lock in place...continuing with install"
 
 apt-get install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential i2c-tools -y
 sudo -H pip install --upgrade pip
 apt-get purge python-pip -y
 sudo -H pip install --upgrade pip setuptools
-#problems with installing the next command with pillow
+#sometimes problems with installing the next command with the d/l of pillow
+#it can KILL the process and mess up the full install
 sudo -H pip install --upgrade luma.oled
-git clone https://github.com/rm-hull/luma.examples.git
 
 #add in I2C overlay
 sed -i '/overlays=usbhost0 usbhost1 usbhost2 usbhost3/c\overlays=usbhost0 usbhost1 usbhost2 usbhost3 i2c0' /boot/armbianEnv.txt
 
 
 #download example files
-wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.py
-wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox_logo.png
-wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.ttf
-
-#i2cdetect -y 0
-#cd ~/luma.examples/examples/
-#python font_awesome.py --i2c-port 0
+wget -O https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.py
+wget -O https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox_logo.png
+wget -O https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.ttf
 
 echo " "
 echo "Please restart to implement changes!"
