@@ -4,7 +4,7 @@ Script and example for getting a SSD1306 OLED device working with a ConnectBox's
 Usage from the command line:
 ```bash
 wget https://github.com/GeoDirk/NEO_OLED_Setup/raw/master/install_oled.sh
-chmod 755 install_oled./install_oled.sh 2>&1 >logfile.txt.sh
+chmod 755 install_oled
 ./install_oled.sh
 ```
 
