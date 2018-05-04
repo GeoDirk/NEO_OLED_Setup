@@ -1,4 +1,4 @@
-# NEO_OLED_Setup
+# NEO_OLED_Setup - Python3 version
 Script and example for getting a SSD1306 OLED device working with a ConnectBox's Armbian Image
 
 Usage from the command line:
@@ -12,7 +12,7 @@ Ths script will install all the required libraries and set the ConnectBox image 
 
 After reboot, an example Python2 program that you can run in the /root folder. Run the example with the following command:
 
-`python connectbox.py --i2c-port 0`
+`python3 connectbox.py --i2c-port 0`
 
 The OLED will intialize and display first the ConnectBox logo and then some text. End the demo with a CTRL-C on the keyboard.
 
