@@ -11,13 +11,14 @@ if [ "$?" -eq 2 ]; then
 fi
 echo "-->No lock in place...continuing with install"
 
-apt-get install python-dev python-pip libfreetype6-dev libjpeg-dev build-essential i2c-tools -y
-sudo -H pip install --upgrade pip
-apt-get purge python-pip -y
-sudo -H pip install --upgrade pip setuptools
+
+sudo apt-get install python3-dev python3-pip libfreetype6-dev libjpeg-dev build-essential i2c-tools -y
+sudo -H pip3 install --upgrade pip
+sudo -H pip3 install --upgrade pip setuptools
 #sometimes problems with installing the next command with the d/l of pillow
 #it can KILL the process and mess up the full install
-sudo -H pip install --upgrade luma.oled
+sudo -H pip3 install --upgrade luma.oled
+
 
 #add in I2C overlay
 sed -i '/overlays=usbhost0 usbhost1 usbhost2 usbhost3/c\overlays=usbhost0 usbhost1 usbhost2 usbhost3 i2c0' /boot/armbianEnv.txt
