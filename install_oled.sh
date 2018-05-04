@@ -25,9 +25,9 @@ sed -i '/overlays=usbhost0 usbhost1 usbhost2 usbhost3/c\overlays=usbhost0 usbhos
 
 
 #download example files
-wget -O https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.py
-wget -O https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox_logo.png
-wget -O https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.ttf
+wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.py
+wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox_logo.png
+wget https://raw.githubusercontent.com/GeoDirk/NEO_OLED_Setup/master/connectbox.ttf
 
 echo " "
 echo "Please restart to implement changes!"
